@@ -1,6 +1,7 @@
 package com.study.august.effective.object.test;
 
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -9,7 +10,7 @@ import java.util.TimeZone;
  * @date: 2020/8/2
  * @author: likanghai
  */
-public class Person {
+public class Person implements Comparable {
 
     private final Date birthDate;
 
@@ -34,4 +35,9 @@ public class Person {
                 birthDate.compareTo(BOOM_END) < 0;
     }
 
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }

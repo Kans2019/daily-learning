@@ -1,9 +1,13 @@
 package com.study.august.effective.servicetest;
 
+import com.google.common.collect.Sets;
+import org.apache.commons.compress.utils.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -45,5 +49,10 @@ public class Services {
             return null;
         }
         return p.newService();
+    }
+
+    public static void main(String[] args) {
+        List<String> list = Lists.newArrayList();
+        TreeSet<String>  treeSet = Sets.newTreeSet();
     }
 }

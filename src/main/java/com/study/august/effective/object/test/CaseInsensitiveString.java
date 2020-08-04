@@ -1,6 +1,7 @@
 package com.study.august.effective.object.test;
 
 
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Objects;
  * @date: 2020/8/2
  * @author: likanghai
  */
-public class CaseInsensitiveString implements Cloneable {
+public class CaseInsensitiveString implements Cloneable, Comparator<CaseInsensitiveString> {
 
     private final String s;
 
@@ -17,6 +18,11 @@ public class CaseInsensitiveString implements Cloneable {
             throw new NullPointerException();
         }
         this.s = s;
+    }
+
+    @Override
+    public int compare(CaseInsensitiveString o1, CaseInsensitiveString o2) {
+        return 0;
     }
 
     @Override
