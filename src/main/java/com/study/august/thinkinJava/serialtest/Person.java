@@ -13,6 +13,8 @@ public class Person implements Externalizable {
 
     private int age;
 
+    private int level;
+
     public Person(){
 
     }
