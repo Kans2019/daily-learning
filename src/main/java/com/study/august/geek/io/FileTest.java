@@ -55,5 +55,6 @@ public class FileTest {
     @Test
     public void testGithub() throws FileNotFoundException {
         FileInputStream fileInputStream = new FileInputStream(new File("test"));
+        System.out.println("123123");
     }
 }
