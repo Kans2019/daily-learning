@@ -35,8 +35,8 @@ public class NIOServer extends Thread{
                     sayHelloWorld((ServerSocketChannel) key.channel());
                     iterator.remove();
                 }
-
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         } ;
