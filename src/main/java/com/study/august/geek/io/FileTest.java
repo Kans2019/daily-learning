@@ -1,9 +1,13 @@
 package com.study.august.geek.io;
 
+import org.apache.commons.compress.utils.CharsetNames;
 import org.junit.Test;
 
 import java.io.*;
 import java.nio.channels.FileChannel;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * @description: FileTest
@@ -56,5 +60,36 @@ public class FileTest {
     public void testGithub() throws FileNotFoundException {
         FileInputStream fileInputStream = new FileInputStream(new File("test"));
         System.out.println("123123");
+    }
+
+    @Test
+    public void readChar() throws IOException {
+        String name = "likanghai";
+        double salary = 75000;
+        PrintWriter out = new PrintWriter("data.txt", "UTF-8");
+        out.print(name);
+        out.println(salary);
+        out.print('a');
+        out.close();
+        System.out.println(System.getProperty("line.separator"));
+    }
+
+    @Test
+    public void scannerTest() throws IOException {
+        String content = new String(Files.readAllBytes(Paths.get("data.txt")), StandardCharsets.UTF_16);
+    }
+
+    @Test
+    public void bufferTest() throws FileNotFoundException {
+      FileInputStream fin = new FileInputStream("data.txt");
+
+        try( BufferedReader in = new BufferedReader(new InputStreamReader(fin, StandardCharsets.UTF_8))){
+            String line;
+            while((line = in.readLine()) != null){
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
