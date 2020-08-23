@@ -12,7 +12,7 @@ import java.nio.channels.FileChannel;
  */
 public class FileTest {
 
-    private static final String  BASE_PATH = System.getProperty("user.dir") + "\\src\\main\\resources";
+    private static final String BASE_PATH = System.getProperty("user.dir") + "\\src\\main\\resources";
 
     private static final String SOURCE_PATH = BASE_PATH + "source.txt";
 
@@ -20,13 +20,13 @@ public class FileTest {
 
     @Test
     public void copyFileByStream() {
-        File source =  new File(SOURCE_PATH);
+        File source = new File(SOURCE_PATH);
         File dest = new File(DEST_PATH);
-        try(InputStream is = new FileInputStream(source);
-            OutputStream os = new FileOutputStream(dest);){
+        try (InputStream is = new FileInputStream(source);
+             OutputStream os = new FileOutputStream(dest);) {
             byte[] buffer = new byte[1024];
             int length;
-            while((length = is.read(buffer)) > 0 ){
+            while ((length = is.read(buffer)) > 0) {
                 os.write(buffer, 0, length);
             }
         } catch (IOException e) {
@@ -35,12 +35,12 @@ public class FileTest {
     }
 
     @Test
-    public void copyFileByChannel(){
+    public void copyFileByChannel() {
         File source = new File(SOURCE_PATH);
         File dest = new File(DEST_PATH);
-        try(FileChannel sourceChannel = new FileInputStream(source).getChannel();
-            FileChannel targetChannel = new FileOutputStream(dest).getChannel();){
-            for(long count = sourceChannel.size(); count > 0;){
+        try (FileChannel sourceChannel = new FileInputStream(source).getChannel();
+             FileChannel targetChannel = new FileOutputStream(dest).getChannel();) {
+            for (long count = sourceChannel.size(); count > 0; ) {
                 long transferred = sourceChannel.transferTo(
                         sourceChannel.position(), count, targetChannel);
                 count -= transferred;
@@ -53,7 +53,7 @@ public class FileTest {
     }
 
     @Test
-    public void testGithub(){
-
+    public void testGithub() throws FileNotFoundException {
+        FileInputStream fileInputStream = new FileInputStream(new File("test"));
     }
 }
