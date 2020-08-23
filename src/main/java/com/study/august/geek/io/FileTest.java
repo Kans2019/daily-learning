@@ -50,6 +50,10 @@ public class FileTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void testGithub(){
 
     }
 }
