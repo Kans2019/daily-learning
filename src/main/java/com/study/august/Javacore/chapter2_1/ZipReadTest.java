@@ -19,6 +19,7 @@ public class ZipReadTest {
             System.out.println();
             System.out.println(entry.getComment());
         }
+
         zin.close();
     }
 
